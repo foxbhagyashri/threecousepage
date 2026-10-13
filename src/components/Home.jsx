@@ -12,6 +12,141 @@ import universityLogo from "/sunlogo.png";
       Google Ads conversion event (gtag_report_conversion).
 ------------------------------------------------------------------- */
 
+
+
+
+const c = {
+  red: "#d91e2a",
+  black: "#0d0d0d",
+  white: "#ffffff",
+  grey: "#c9c9c9",
+};
+
+const iconProps = {
+  viewBox: "0 0 24 24",
+  width: 24,
+  height: 24,
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": true,
+};
+
+const FaceIcon = () => (
+  <svg {...iconProps}>
+    <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2" />
+    <circle cx="12" cy="10" r="3" />
+    <path d="M7 18c.8-2 2.6-3 5-3s4.2 1 5 3" />
+  </svg>
+);
+
+const DeviceIcon = () => (
+  <svg {...iconProps}>
+    <rect x="7" y="2" width="10" height="20" rx="2" />
+    <path d="M11 18h2M3 9l-1 1 1 1M21 9l1 1-1 1" />
+  </svg>
+);
+
+const MicIcon = () => (
+  <svg {...iconProps}>
+    <rect x="9" y="3" width="6" height="11" rx="3" />
+    <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+  </svg>
+);
+
+const CameraIcon = () => (
+  <svg {...iconProps}>
+    <path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    <circle cx="12" cy="13" r="3.5" />
+  </svg>
+);
+
+const features = [
+  { title: "Face Tracking", text: "Verifies candidate presence in real time.", Icon: FaceIcon },
+  { title: "Object Detection", text: "Flags unauthorized secondary devices.", Icon: DeviceIcon },
+  { title: "Noise Monitoring", text: "Detects background voice or noise cues.", Icon: MicIcon },
+  { title: "Auto Capture", text: "Immediate logging of unfair practices.", Icon: CameraIcon },
+];
+
+const requirements = [
+  { label: "Device", text: "Desktop/Laptop with active HD Webcam & Microphone." },
+  { label: "Connectivity", text: "Stable high-speed internet (2 Mbps+)." },
+  { label: "Browser", text: "Latest Google Chrome or Mozilla Firefox." },
+  { label: "Environment", text: "Well-lit quiet room without external noise or visitors." },
+];
+
+const styles = {
+  section: {
+    background: c.black,
+    color: c.white,
+    fontFamily: "'Segoe UI', system-ui, -apple-system, Arial, sans-serif",
+    padding: "64px 20px",
+  },
+  inner: { maxWidth: 1040, margin: "0 auto" },
+  title: {
+    fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
+    fontWeight: 800,
+    lineHeight: 1.15,
+    margin: "0 0 14px",
+    paddingBottom: 14,
+    borderBottom: `4px solid ${c.red}`,
+    display: "inline-block",
+  },
+  lead: {
+    maxWidth: "62ch",
+    color: c.grey,
+    fontSize: "1.05rem",
+    lineHeight: 1.6,
+    margin: "0 0 40px",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: 16,
+    margin: "0 0 40px",
+    padding: 0,
+    listStyle: "none",
+  },
+  card: {
+    background: c.white,
+    color: c.black,
+    borderRadius: 10,
+    padding: 22,
+    borderTop: `5px solid ${c.red}`,
+  },
+  iconBox: {
+    width: 46,
+    height: 46,
+    borderRadius: 10,
+    background: c.red,
+    color: c.white,
+    display: "grid",
+    placeItems: "center",
+    marginBottom: 16,
+  },
+  cardTitle: { margin: "0 0 6px", fontSize: "1.1rem", fontWeight: 700 },
+  cardText: { margin: 0, color: "#444", fontSize: ".95rem", lineHeight: 1.5 },
+  reqBox: {
+    background: c.white,
+    color: c.black,
+    borderRadius: 10,
+    borderLeft: `6px solid ${c.red}`,
+    padding: "24px 24px 10px",
+  },
+  reqTitle: { margin: "0 0 12px", fontSize: "1.25rem", fontWeight: 800 },
+  reqRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "4px 20px",
+    padding: "14px 0",
+    borderTop: "1px solid #e2e2e2",
+  },
+  reqLabel: { flex: "0 0 130px", fontWeight: 700, color: c.red },
+  reqText: { flex: "1 1 240px", margin: 0, lineHeight: 1.5 },
+};
+
 const RECRUITERS = [
   { name: "Rêve Pharma", src: "/intellexempire.png" },
   { name: "Yugandhar", src: "/jkb-legal.png" },
@@ -49,7 +184,7 @@ const CONTENT = {
   phone: "+91-8956374111",
   phoneHref: "tel:+918956374111",
   heroTag: "Admissions Open 2027-28",
-  heroTitle: "Sandip University Entrance Exams",
+  heroTitle: "Sandip University Aptitude Test - 2027",
   heroSub:
     "Phase 1 Admission 2027–2028",
 
@@ -79,10 +214,10 @@ const CONTENT = {
     { value: "20+", label: "Design Labs & Studios" },
     { value: "100%", label: "Placement Support" },
   ],
-  aboutTitle: "About the School of Law",
+  aboutTitle: "About Sandip University",
   aboutText: [
-    "Sandip University’s School of Law is one of Maharashtra’s top institutions for legal education, known for its industry-oriented curriculum designed by leading academicians and professionals. ",
-    "The school focuses on developing socially responsible legal professionals with strong values of justice, fairness, and equality. Students benefit from a modern learning environment, holistic development, and diverse specialisations that help them build strong legal skills and stand out in the competitive legal field.Sandip University’s School of Law provides quality, industry-focused legal education.",
+    "Sandip University is a thriving hub of 21st century higher education.It is a UGC-approved University in India, located in Nashik, Maharashtra. The University is set in a picturesque lush green Wi-Fi enabled campus spanning across 250+ acres and is home to cutting-edge infrastructure for a holistic student experience.",
+    "As a best private university in Nashik, Maharashtra, Sandip University attuned to the pulse of global educational standards, and so provides students with an education that takes them places. Our placement cell trains students through mock interviews and helps them write a dynamic resume. Sandip University prepares students of today to become leaders of tomorrow on the global stage.",
   ],
   highlights: [
     { title: "250+ Acre Lush Campus", text: "A world-class eco-friendly campus equipped with modern amphitheaters, sports complexes, high-tech labs, and peaceful study zones." },
@@ -1539,6 +1674,47 @@ function Careers() {
   );
 }
 
+
+function ProctoringSection() {
+  return (
+    <section style={styles.section} aria-labelledby="proctor-title">
+      <div style={styles.inner}>
+        <h2 id="proctor-title" style={styles.title}>
+          100% Home Proctored
+        </h2>
+        <p style={styles.lead}>
+          To maintain strict merit standards, exams are continuously monitored
+          using advanced artificial intelligence mechanisms.
+        </p>
+
+        <ul style={styles.grid}>
+          {features.map(({ title, text, Icon }) => (
+            <li key={title} style={styles.card}>
+              <div style={styles.iconBox}>
+                <Icon />
+              </div>
+              <h3 style={styles.cardTitle}>{title}</h3>
+              <p style={styles.cardText}>{text}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div style={styles.reqBox}>
+          <h3 style={styles.reqTitle}>Minimum Technical Requirements</h3>
+          <dl style={{ margin: 0 }}>
+            {requirements.map(({ label, text }) => (
+              <div key={label} style={styles.reqRow}>
+                <dt style={styles.reqLabel}>{label}</dt>
+                <dd style={styles.reqText}>{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Process() {
   const { sm, lg } = useBp();
   return (
@@ -1791,6 +1967,7 @@ export default function SchoolOfDesignLanding() {
       <Syllabus />
       <Schedule />
       {/* <Showcase /> */}
+      <ProctoringSection />
       <Process />
       <Recruiters />
       <FAQ />
